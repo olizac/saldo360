@@ -1,0 +1,133 @@
+/* ============================================================
+   1. Layout
+   ============================================================ */
+.main {
+    flex: 1;
+    padding: 4rem 4rem 6rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.dashboard {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 320px;
+    grid-template-areas:
+    "summary  trans"
+    "chart    trans"
+    "chart    summary2";
+    grid-template-rows: auto auto 1fr;
+    gap: 2rem;
+}
+
+.summary-card     { grid-area: summary; }
+.chart-card       { grid-area: chart; }
+.transactions-card{ grid-area: trans; }
+.month-summary-card {
+    grid-area: summary2;
+}
+
+
+/* ============================================================
+   2. Summary
+   ============================================================ */
+.summary-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* 👈 rozsuwa elementy na boki */
+    background: #fff;
+    padding: 2rem 2.5rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    min-height: 140px; /* gwarantuje pionowe wycentrowanie */
+}
+
+.summary-left, .summary-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.balance {
+    font-size: 3.5rem;
+    font-weight: 700;
+    letter-spacing: -1px;
+    color: #c0392b;
+    margin: 0;
+    text-align: left;
+}
+
+.spent-summary {
+    font-size: 1.15rem;
+    color: var(--text-light);
+    margin: 0;
+    line-height: 1.6;
+    text-align: right;
+}
+
+
+.spent-summary strong { color: var(--text-dark); font-weight: 600; }
+.trend { color: #0f8c76;; font-weight: 500; }
+
+/* ============================================================
+   3. FAB
+   ============================================================ */
+.fab {
+    position: fixed;
+    right: 4rem;
+    bottom: 4rem;
+    z-index: 30;
+    width: 64px;
+    height: 64px;
+    border: none;
+    border-radius: 50%;
+    background: var(--teal-main);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    cursor: pointer;
+    transition: var(--transition);
+}
+.fab:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(1,122,115,.3);
+}
+
+/* ============================================================
+   4. Responsiveness
+   ============================================================ */
+@media (max-width: 1500px) {
+    .transactions {
+        position: static;
+        transform: none;
+        width: 100%;
+        margin-top: 2rem;
+    }
+    .chart-section {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 1024px) {
+    .dashboard {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+      "chart"
+      "summary"
+      "trans";
+    }
+    .transactions-card {
+        max-width: 480px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main {
+        padding: 2rem;
+    }
+    .chart-section {
+        padding: 1.5rem;
+    }
+}
