@@ -1,0 +1,86 @@
+/* główna kolumna ustawień */
+.settings-main {
+    flex: 1;
+    padding: 4rem 4rem 4rem 120px;   /* tak samo jak .main na stronie głównej */
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.settings-main h2 { font-size: 1.8rem; margin-bottom: 2rem; }
+.settings-main section { margin-bottom: 2.5rem; }
+.settings-main h3 { font-size: 1.2rem; margin-bottom: 1rem; }
+
+/* większe przyciski-swatche */
+.settings-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .8rem;
+}
+
+.swatch-lg {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    border: 3px solid transparent;
+    cursor: pointer;
+    transition: transform .15s, border-color .15s;
+}
+.swatch-lg:hover  { transform: scale(1.08); }
+.swatch-lg.active { border-color: #111; } /* podkreślenie aktywnego wyboru */
+/* prosty iOS-owy switch */
+.dark-toggle{
+    display:inline-flex;
+    align-items:center;
+    gap:.6rem;
+    font-weight:500;
+    cursor:pointer;
+    user-select:none;
+}
+
+.dark-toggle input{
+    display:none;
+}
+
+.dark-toggle .slider{
+    width:46px; height:26px;
+    border-radius:26px;
+    background:#ccc;
+    position:relative;
+    transition:background .25s;
+}
+
+.dark-toggle .slider::before{
+    content:'';
+    position:absolute;
+    top:3px; left:3px;
+    width:20px; height:20px;
+    border-radius:50%;
+    background:#fff;
+    transition:transform .25s;
+    box-shadow:0 1px 3px rgba(0,0,0,.3);
+}
+
+.dark-toggle input:checked + .slider{
+    background:var(--teal-main);
+}
+
+.dark-toggle input:checked + .slider::before{
+    transform:translateX(20px);
+}
+
+.dark-toggle .label{
+    min-width:50px;
+}
+:root.dark {
+    --bg-light: #0f1a23;
+    --text-dark: #e0e0e0;
+    --text-light: #a0aab3;
+}
+.settings-main section h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 0 .8rem;
+    opacity: .8;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+}

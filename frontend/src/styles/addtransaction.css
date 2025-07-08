@@ -1,0 +1,236 @@
+/* ───────── Modal & backdrop ───────── */
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 440px;
+    box-shadow: 0 12px 28px rgba(0,0,0,.2);
+    animation: fadeIn .2s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(.98); }
+    to   { opacity: 1; transform: scale(1); }
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.2rem;
+}
+
+.close-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+/* ───────── Formularz ───────── */
+.form { display: flex; flex-direction: column; gap: 1rem; }
+
+input, textarea, select {
+    width: 100%;
+    padding: .6rem .75rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.submit-btn {
+    padding: .75rem;
+    background: #e66795;
+    color: #fff;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background .2s;
+}
+.submit-btn:hover { background:#01635e; }
+
+/* ───────── Dropdown ikonek ───────── */
+.icon-dropdown { position: relative; }
+
+.icon-toggle {
+    padding: 0.4rem 0.6rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background: #f9f9f9;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    box-shadow: inset 0 0 0 1px #e0e0e0;
+}
+
+.icon-toggle:hover { background:#eee; }
+.icon-toggle .arrow { font-size:.8rem; }
+
+/* panel z grupami ikon */
+.icon-panel {
+    position: absolute;
+    top: 110%; left: 0;
+    width: 270px;
+    max-height: 260px;
+    overflow-y: auto;
+    background:#fff;
+    border:1px solid #ccc;
+    border-radius:8px;
+    box-shadow:0 4px 12px rgba(0,0,0,.1);
+    padding:.6rem;
+    z-index: 10;
+}
+
+/* każda grupa */
+.icon-group       { margin-bottom:.9rem; }
+.icon-group:last-child { margin-bottom:.4rem; }
+
+.icon-group-label {
+    font-size:.75rem;
+    font-weight:600;
+    color:#555;
+    text-transform:uppercase;
+    letter-spacing:.4px;
+    margin:.25rem 0 .35rem;
+}
+
+.icon-grid {
+    display:flex;
+    flex-wrap:wrap;
+    gap:.4rem;
+}
+
+/* jeden przycisk-ikona */
+.icon-btn {
+    width:38px; height:38px;
+    border-radius:8px;
+    border:none;
+    background:#f3f3f3;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    transition:transform .15s, background .15s;
+}
+.icon-btn:hover    { transform:scale(1.1); background:#eaeaea; }
+.icon-btn.selected { background:#d0ebff; box-shadow:inset 0 0 0 2px #339af0; }
+
+.amount-field {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.sign-toggle {
+    width: 40px;
+    height: 40px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    border: none;
+    background: transparent;
+    padding: .6rem 0;
+    outline: none;
+    appearance: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.sign-toggle.expense {
+    color: #c0392b;
+}
+
+.sign-toggle.income {
+    color: #0f8c76;
+}
+
+
+.sign-toggle:hover {
+    transform: scale(1.05);
+}
+.category-row {
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+}
+
+/* Pigułka */
+.category-pill {
+    /* tylko TA ramka – select zostaje całkowicie przezroczysty */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: #fff;
+    padding: 0 .6rem 0 .4rem;
+    display: flex;
+    align-items: center;
+    flex: 1;
+    transition: border-color .2s, box-shadow .2s;
+}
+
+/* highlight przy focusie */
+.category-pill:focus-within {
+    border-color: var(--pill-color, #017a73);
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--pill-color) 50%, transparent);
+}
+
+/* kolorowa kropka */
+.category-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-right: .4rem;
+}
+
+/* select „zatopiony” – bez własnej ramki/tła */
+.category-select {
+    flex: 1;
+    font-size: 1rem;
+    border: none;
+    background: transparent;
+    padding: .6rem 0;
+    outline: none;
+    appearance: none;
+}
+
+/* Safari + Firefox dodatkowo */
+.category-select::-ms-expand { display:none; }     /* IE/Edge legacy */
+.category-select:focus { outline: none; }
+.amount-field.inside {
+    position: relative;
+}
+
+.sign-inside {
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+}
+
+.sign-inside.income  { color: #0f8c76; }
+.sign-inside.expense { color: #c0392b; }
+
+.amount-field.inside input {
+    padding-left: 2rem; /* miejsce na znak */
+}
+.sign-toggle, .sign-inside {
+    user-select: none;
+}
