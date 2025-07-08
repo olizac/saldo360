@@ -20,7 +20,7 @@ This is a solo full-stack project focused on delivering both functionality and t
 - Deployment via **Render**
 
 **Database**
-- **PostgreSQL**, managed via **Neon** 
+- **PostgreSQL**, managed via **Neon**
 ---
 
 ## ✅ Core Features
@@ -32,9 +32,9 @@ This is a solo full-stack project focused on delivering both functionality and t
 - Recurring and future-dated transactions (subscriptions, planned payments)
 - Discreet mode to quickly hide all amounts from view
 - Full interface customization:
-    - Light / dark mode
-    - Sidebar themes and accent colors
-    - Chart color palettes
+  - Light / dark mode
+  - Sidebar themes and accent colors
+  - Chart color palettes
 - Multi-language support (PL / EN)
 - Multi-currency support with conversion
 - Export selected transactions to CSV or PDF
